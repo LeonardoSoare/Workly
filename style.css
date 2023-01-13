@@ -62,7 +62,7 @@ header {
 }
 .workout-display {
 }
-.workout {
+.workout-preview {
   margin-top: 2.4rem;
   display: flex;
   align-items: center;
@@ -103,4 +103,131 @@ header {
   font-size: 1.2rem;
   font-weight: 400;
   color: #555;
+}
+/* Form */
+
+.exercise {
+  display: flex;
+  gap: 1.6rem;
+  padding-left: 3.2rem;
+  padding-top: 3.2rem;
+}
+.set {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.exercise-name {
+  border: none;
+  resize: none;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  transition: all 0.3s ease-in;
+}
+.exercise-name:focus {
+  background-color: #eee;
+  border: 1px solid #16a34a;
+}
+.input-exercise {
+  display: block;
+  width: 9.5rem;
+  border: none;
+  width: 5rem;
+}
+.unit {
+  border: none;
+  outline: none;
+  border-radius: 9px;
+}
+
+.exercise-weight {
+  display: flex;
+}
+.weight {
+  width: 5rem;
+}
+.workout-name {
+  width: 20rem;
+  justify-self: center;
+  border: none;
+  border: 1px solid #ddd;
+  outline: none;
+  border-radius: 9px;
+  transition: all 0.3s ease-in;
+  font-size: 3rem;
+}
+.workout-name:focus {
+  background-color: #eee;
+  border: 1px solid #16a34a;
+}
+/* Temporary */
+.workout-form {
+  padding-top: 3.2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.input-container {
+  display: flex;
+  gap: 0.8rem;
+}
+.label-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.sets-separator-line {
+  /* width: 100%; */
+  border: 1px solid #ccc;
+}
+.separator {
+  margin-top: 2.4rem;
+}
+.exercise-separator-line {
+  margin-top: 0.4rem;
+  border: 0.25px solid #ccc;
+  margin-bottom: 0.4rem;
+}
+.img-button-container {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.sets-plus {
+  margin-right: -1.2rem;
+}
+.sets-minus {
+  margin-left: -1.2rem;
+}
+.exercise-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 3.2rem;
+  margin-bottom: 3.2rem;
+}
+.exercise-sets {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+}
+.exercise-set {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border: 1px solid #555;
+  font-size: 1.2rem;
+}
+.exercise-set-name {
+  font-size: 2rem;
+}
+.submit-button {
+  margin: 0 auto;
+  padding: 1.2rem 0.8rem;
+  text-align: center;
+  margin-top: 4.8rem;
+  font-size: 3rem;
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  background-color: #16a34a;
+  border-radius: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
 }

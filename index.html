@@ -23,7 +23,7 @@
     </header>
     <main class="main-body">
       <div class="workout-list">
-        <a class="workout">
+        <a class="workout-preview">
           <div class="img-container">
             <img class="img" src="weights.svg" />
           </div>
@@ -32,7 +32,7 @@
             <div class="workout-focus">Session Focus: Chest</div>
           </div>
         </a>
-        <a class="workout">
+        <a class="workout-preview">
           <div class="img-container">
             <img class="img" src="bike.svg" />
           </div>
@@ -41,7 +41,7 @@
             <div class="workout-focus">Session Focus: Chest</div>
           </div>
         </a>
-        <a class="workout">
+        <a class="workout-preview">
           <div class="img-container">
             <img class="img" src="runner.svg" />
           </div>
@@ -51,7 +51,129 @@
           </div>
         </a>
       </div>
-      <div class="workout-display"></div>
+      <div class="workout-display">
+        <form class="workout-form">
+          <input class="workout-name" type="text" required />
+
+          <div class="exercise">
+            <textarea
+              class="exercise-name"
+              placeholder="Exercise name"
+              rows="2"
+              cols="20"
+            ></textarea>
+            <div class="set">
+              <div class="exercise-weight">
+                <input
+                  class="weight input-exercise"
+                  type="text"
+                  placeholder="Weight"
+                />
+                <select class="unit" required>
+                  <option value="">unit</option>
+                  <option value="kg">kg</option>
+                  <option value="lbs">lbs</option>
+                </select>
+              </div>
+              <div class="input-container">
+                <label class="label-name" for="reps">Reps:</label>
+                <input id="reps" class="reps input-exercise" type="text" />
+              </div>
+              <div class="input-container">
+                <label class="label-name" for="rest">Rest:</label>
+                <input id="rest" class="rest input-exercise" type="text" />
+              </div>
+            </div>
+            <div class="img-button-container sets-plus">
+              <img class="img" src="add-circle-outline.svg" />
+            </div>
+            <div class="sets-separator-line"></div>
+            <div class="img-button-container sets-minus">
+              <img class="img" src="remove-circle-outline.svg" />
+            </div>
+          </div>
+          <div class="separator">
+            <div class="img-button-container">
+              <img class="img" src="add-circle-outline.svg" />
+            </div>
+            <div class="exercise-separator-line"></div>
+            <div class="img-button-container">
+              <img class="img" src="remove-circle-outline.svg" />
+            </div>
+          </div>
+          <a href="#" class="submit-button">Submit</a>
+        </form> 
+        <!-- <div class="exercise-title">Exercise Title</div>
+        <div class="exercise-sets">
+          <div class="exercise-set exercise-set-name">Exercise-name</div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+        </div>
+        <div class="exercise-sets">
+          <div class="exercise-set exercise-set-name">Exercise-name</div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+        </div>
+        <div class="exercise-sets">
+          <div class="exercise-set exercise-set-name">Exercise-name</div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+          <div class="exercise-set">
+            <div>Weight</div>
+            <div>Reps</div>
+            <div>Rest: 1min 30s</div>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
