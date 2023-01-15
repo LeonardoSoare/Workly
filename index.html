@@ -13,8 +13,10 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
     </style>
-    <title>Workly</title>
+
+    <script defer src="./js/controller.js" type="module"></script>
     <link rel="stylesheet" href="style.css" />
+    <title>Workly</title>
   </head>
   <body>
     <header class="header">
@@ -52,9 +54,9 @@
         </a>
       </div>
       <div class="workout-display">
-        <form class="workout-form">
+        <!-- <form class="workout-form">
+          
           <input class="workout-name" type="text" required />
-
           <div class="exercise">
             <textarea
               class="exercise-name"
@@ -102,8 +104,16 @@
             </div>
           </div>
           <a href="#" class="submit-button">Submit</a>
-        </form> 
-        <!-- <div class="exercise-title">Exercise Title</div>
+        </form>  -->
+        <div class="exercise-title">Exercise Title</div>
+        <div class="exercise-focus">Focus:Upper Body Training</div>
+
+        <svg class="edit-icon">
+          <use href="/icons.svg#icon-document-edit"></use>
+        </svg>
+        <svg class="trash-icon">
+          <use href="/icons.svg#icon-trash"></use>
+        </svg>
         <div class="exercise-sets">
           <div class="exercise-set exercise-set-name">Exercise-name</div>
           <div class="exercise-set">

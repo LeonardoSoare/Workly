@@ -61,12 +61,15 @@ header {
   background-color: #f8fafc;
 }
 .workout-display {
+  position: relative;
 }
 .workout-preview {
+  text-decoration: none;
+  color: #000;
   margin-top: 2.4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 3.2rem;
   /* border: 1px solid; */
   width: 100%;
   height: 8rem;
@@ -77,7 +80,6 @@ header {
 .workout-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.4rem;
   margin-right: 12.8rem;
 }
@@ -163,7 +165,7 @@ header {
 }
 /* Temporary */
 .workout-form {
-  padding-top: 3.2rem;
+  padding-top: 4.8rem;
   display: grid;
   grid-template-columns: 1fr;
 }
@@ -205,24 +207,27 @@ header {
 }
 .exercise-sets {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, 15rem);
 }
 .exercise-set {
+  color: #333;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  border: 1px solid #555;
+  border: 1px solid #73c892;
   font-size: 1.2rem;
 }
 .exercise-set-name {
   font-size: 2rem;
+  grid-column: 1/2;
 }
 .submit-button {
   margin: 0 auto;
-  padding: 1.2rem 0.8rem;
+  padding: 1.4rem 2rem;
   text-align: center;
   margin-top: 4.8rem;
-  font-size: 3rem;
+  font-size: 2.4rem;
   text-decoration: none;
   color: #fff;
   border: none;
@@ -230,4 +235,27 @@ header {
   border-radius: 11px;
   letter-spacing: 1.5px;
   font-weight: 600;
+}
+
+.edit-icon {
+  position: absolute;
+  width: 3.6rem;
+  height: 3.6rem;
+  right: 7.5%;
+  top: 3rem;
+  fill: #0f7234;
+}
+.trash-icon {
+  position: absolute;
+  width: 3.6rem;
+  height: 3.6rem;
+  right: 3%;
+  top: 3.05rem;
+  fill: #0f7234;
+}
+.exercise-focus {
+  position: absolute;
+  top: 3rem;
+  font-size: 2rem;
+  color: #555;
 }
