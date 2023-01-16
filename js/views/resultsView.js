@@ -2,6 +2,7 @@ import View from "./View";
 import image1 from "../../bike.svg";
 class ResultsView extends View {
   _parentElement = document.querySelector(".workout-list");
+  _addButton = document.querySelector(".button-add");
 
   _generateMarkup() {
     const markup = this._data.results
@@ -19,8 +20,14 @@ class ResultsView extends View {
       `;
       })
       .join("");
-    console.log(markup);
+    // console.log(markup);
     return markup;
+  }
+  addHandlerAddWorkout(handler) {
+    this._addButton.addEventListener("click", function () {
+      console.log("Hello add Button");
+      handler();
+    });
   }
 }
 

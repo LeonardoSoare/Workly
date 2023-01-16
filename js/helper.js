@@ -13,3 +13,14 @@ export const DEL_AJAX = async function (url, id = "") {
   const data = await res.json();
   return data;
 };
+export const POST_AJAX = async function (url, data) {
+  const res = await fetch(`${url}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const data_Res = await res.json();
+  return data_Res;
+};
