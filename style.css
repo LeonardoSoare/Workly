@@ -39,7 +39,7 @@ header {
 
 .company-name {
   padding-left: 3.2rem;
-  font-size: 2.4rem;
+  font-size: 3rem;
   font-weight: 900;
   letter-spacing: 1.1px;
 }
@@ -59,6 +59,7 @@ header {
   display: flex;
   flex-direction: column;
   background-color: #f8fafc;
+  overflow-x: hidden;
 }
 .workout-display {
   position: relative;
@@ -76,6 +77,12 @@ header {
   /* border: 2px solid #eee; */
   /* border-radius: 11px; */
   /* padding: 0 1.2rem; */
+}
+.workout-preview:hover {
+  box-shadow: inset 2px 2px 1px rgb(22, 163, 74, 0.5);
+  background-color: #fff;
+  transform: scale(1.075);
+  transition: 0.3s;
 }
 .workout-text {
   display: flex;
@@ -98,7 +105,7 @@ header {
   height: 100%;
 }
 .workout-title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 500;
 }
 .workout-focus {
@@ -114,6 +121,7 @@ header {
   padding-left: 3.2rem;
   padding-top: 3.2rem;
 }
+
 .set {
   display: flex;
   flex-direction: column;
@@ -150,14 +158,14 @@ header {
   width: 5rem;
 }
 .workout-name {
-  width: 20rem;
+  width: 25rem;
   justify-self: center;
   border: none;
   border: 1px solid #ddd;
   outline: none;
   border-radius: 9px;
   transition: all 0.3s ease-in;
-  font-size: 3rem;
+  font-size: 2.4rem;
   position: relative;
 }
 .workout-name:focus {
@@ -207,6 +215,8 @@ header {
   margin-bottom: 3.2rem;
 }
 .exercise-sets {
+  margin-top: 4.8rem;
+  padding-left: 3.2rem;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, 15rem);
@@ -218,9 +228,10 @@ header {
   gap: 0.4rem;
   border: 1px solid #73c892;
   font-size: 1.2rem;
+  padding: 0.4rem;
 }
 .exercise-set-name {
-  font-size: 2rem;
+  font-size: 1.6rem;
   grid-column: 1/2;
 }
 .submit-button {
@@ -256,14 +267,25 @@ header {
 }
 .exercise-focus {
   position: absolute;
-  top: 3rem;
-  font-size: 2rem;
+  top: 4rem;
+  font-size: 1.6rem;
+
+  left: 3.2rem;
   color: #555;
 }
 .workout-focus-input {
   position: absolute;
-  top: 3rem;
+  top: 5rem;
   font-size: 2rem;
   border: none;
   outline: none;
+  left: 3.2rem;
+  border: 1px solid #ddd;
+  outline: none;
+  border-radius: 9px;
+  transition: all 0.3s ease-in;
+}
+.workout-focus-input:focus {
+  background-color: #eee;
+  border: 1px solid #16a34a;
 }

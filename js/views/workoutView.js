@@ -18,6 +18,14 @@ class WorkoutView extends View {
       } else return;
     });
   }
+  addHandlerEdit(handler) {
+    this._parentElement.addEventListener("click", function (e) {
+      const editBtn = e.target.closest(".edit-icon");
+      if (!editBtn) return;
+
+      handler();
+    });
+  }
 
   _generateMarkup() {
     console.log(this._data);
@@ -39,7 +47,7 @@ class WorkoutView extends View {
         .map((set) => {
           return `
         <div class="exercise-set">
-            <div>Weight: ${set.weight}</div>
+            <div>Weight: ${set.weight} kg</div>
             <div>Reps: ${set.reps}</div>
             <div>Rest: ${set.min}min ${set.sec}s</div>
           </div>

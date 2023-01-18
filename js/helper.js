@@ -13,9 +13,9 @@ export const DEL_AJAX = async function (url, id = "") {
   const data = await res.json();
   return data;
 };
-export const POST_AJAX = async function (url, data) {
-  const res = await fetch(`${url}`, {
-    method: "POST",
+export const POST_PUT_AJAX = async function (url, data, id = "") {
+  const res = await fetch(`${url}${id ? `/${id}` : ""}`, {
+    method: `${id ? "PUT" : "POST"}`,
     headers: {
       "Content-Type": "application/json",
     },

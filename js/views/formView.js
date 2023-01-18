@@ -19,8 +19,8 @@ class FormView extends View {
               rows="2"
               cols="20"
               required
-            ></textarea>
-            <div class="set" data-number="${START_ID}">
+              ></textarea>
+              <div class="set" data-number="${START_ID}">
               <div class="exercise-weight">
                 <input
                   name="weight-${START_ID}-${START_ID}"
@@ -90,7 +90,7 @@ class FormView extends View {
       e.preventDefault();
       const dataArr = [...new FormData(this.querySelector("form"))];
       console.log(dataArr);
-      handler(dataArr);
+      handler(dataArr, this.querySelector("form").dataset.edit);
     });
   }
 

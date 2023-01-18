@@ -5,6 +5,7 @@ import view from "./views/view.js";
 import resultsView from "./views/resultsView.js";
 import workoutView from "./views/workoutView.js";
 import formView from "./views/formView.js";
+import editView from "./views/editView.js";
 
 const controlWorkouts = async function () {
   // Get state from model
@@ -56,12 +57,26 @@ const controlExercise = function (minus = false, plus = false, id) {
 const controlTest = function () {
   console.log("Hello from controller");
 };
-const controlGetFormData = async function (data) {
+const controlGetFormData = async function (data, edit = false) {
   const postData = model.mapFormDataToWorkoutObject(data);
-  const newWorkoutId = await model.postWorkout(postData);
+  let workoutId;
+  if (edit) {
+    workoutId = await model.postWorkout(
+      postData,
+      window.location.hash.slice(1)
+    );
+    await model.loadWorkout(workoutId);
+    workoutView.render(model.state);
+  } else {
+    workoutId = await model.postWorkout(postData);
+  }
   await model.loadWorkouts();
   resultsView.render(model.state);
-  window.location.hash = newWorkoutId;
+  window.location.hash = workoutId;
+};
+const controlEditData = function () {
+  console.log(model.state);
+  editView.render(model.state);
 };
 
 controlWorkouts();
@@ -69,6 +84,7 @@ const init = function () {
   controlWorkout();
   workoutView.addHandlerRender(controlWorkout);
   workoutView.addHandlerDelete(controlDelete);
+  workoutView.addHandlerEdit(controlEditData);
   resultsView.addHandlerAddWorkout(controlForm);
   formView.addHandlerAddSet(controlSets);
   formView.addHandlerAddExercise(controlExercise);

@@ -1,6 +1,6 @@
 import { async } from "regenerator-runtime";
 import { API_URL } from "./config.js";
-import { AJAX, DEL_AJAX, POST_AJAX } from "./helper";
+import { AJAX, DEL_AJAX, POST_PUT_AJAX } from "./helper";
 
 export const state = {
   workout: {},
@@ -63,12 +63,12 @@ export const mapFormDataToWorkoutObject = (formData) => {
     let setIndex = 0;
     while (data[`weight-${index + 1}-${setIndex + 1}`]) {
       console.log(`Found set ${index + 1}-${setIndex + 1}`);
-
+      const rest = data[`rest-${index + 1}-${setIndex + 1}`].split(" ");
       workoutObj.exercises.at(index).sets[setIndex] = {
         weight: data[`weight-${index + 1}-${setIndex + 1}`],
         reps: data[`reps-${index + 1}-${setIndex + 1}`],
-        min: data[`rest-${index + 1}-${setIndex + 1}`],
-        sec: data[`rest-${index + 1}-${setIndex + 1}`],
+        min: rest.at(0),
+        sec: rest.at(1),
       };
       setIndex++;
     }
@@ -78,8 +78,8 @@ export const mapFormDataToWorkoutObject = (formData) => {
   return workoutObj;
 };
 
-export const postWorkout = async function (data) {
-  const response = await POST_AJAX(API_URL, data);
+export const postWorkout = async function (data, id = "") {
+  const response = await POST_PUT_AJAX(API_URL, data, id);
   console.log(response);
   return response.data.id;
 };
