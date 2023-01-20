@@ -44,12 +44,13 @@ class WorkoutView extends View {
         return `
       <div class="exercise-set exercise-set-name">${exercise.name}</div>
       ${exercise.sets
-        .map((set) => {
+        .map((set, i) => {
           return `
         <div class="exercise-set">
-            <div>Weight: ${set.weight} kg</div>
-            <div>Reps: ${set.reps}</div>
-            <div>Rest: ${set.min}min ${set.sec}s</div>
+             <div class="set-number">Set ${i + 1}</div>
+            <div class="detail-padding">Weight: ${set.weight} kg</div>
+            <div class="detail-padding">Reps: ${set.reps}</div>
+            <div class="detail-padding">Rest: ${set.min}min ${set.sec}s</div>
           </div>
         `;
         })

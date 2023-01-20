@@ -89,6 +89,7 @@ const init = function () {
   formView.addHandlerAddSet(controlSets);
   formView.addHandlerAddExercise(controlExercise);
   formView.addHandlerForm(controlGetFormData);
+  Math.trunc(Math.random() * 3 + 1);
 };
 
 init();

@@ -16,11 +16,13 @@ html {
   font-family: "Lato", sans-serif;
 }
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
+  background-image: linear-gradient(to right bottom, #12823b, #73c892);
 }
 header {
   margin: 0 auto;
+  margin-top: 4vw;
 }
 .header {
   background-color: #f8fafc;
@@ -29,12 +31,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 90%;
+  border-radius: 11px 11px 0 0;
 }
 .main-body {
   margin: 0 auto;
-  min-height: 100vh;
+  /* min-height: 80vh; */
   display: grid;
   grid-template-columns: 1fr 2.5fr;
+  width: 90%;
+  margin-bottom: 6.4rem;
 }
 
 .company-name {
@@ -60,9 +66,13 @@ header {
   flex-direction: column;
   background-color: #f8fafc;
   overflow-x: hidden;
+  border-radius: 0 0 0 11px;
+  min-height: 80vh;
 }
 .workout-display {
   position: relative;
+  background-color: #fff;
+  border-radius: 0 0 11px 0;
 }
 .workout-preview {
   text-decoration: none;
@@ -228,7 +238,6 @@ header {
   gap: 0.4rem;
   border: 1px solid #73c892;
   font-size: 1.2rem;
-  padding: 0.4rem;
 }
 .exercise-set-name {
   font-size: 1.6rem;
@@ -238,7 +247,8 @@ header {
   margin: 0 auto;
   padding: 1.4rem 2rem;
   text-align: center;
-  margin-top: 4.8rem;
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
   font-size: 2.4rem;
   text-decoration: none;
   color: #fff;
@@ -288,4 +298,18 @@ header {
 .workout-focus-input:focus {
   background-color: #eee;
   border: 1px solid #16a34a;
+}
+.set-number {
+  font-size: 1.4rem;
+  text-align: center;
+  border-bottom: 2px solid #16a34a;
+  width: 100%;
+  padding: 0.2rem;
+}
+
+.detail-padding {
+  padding: 0 0.4rem;
+}
+.detail-padding:last-child {
+  padding-bottom: 0.4rem;
 }
