@@ -221,5 +221,3 @@ class FormView extends View {
 }
 
 export default new FormView();
-
-console.log("Hello");
