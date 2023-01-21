@@ -48,6 +48,7 @@ header {
   font-size: 3rem;
   font-weight: 900;
   letter-spacing: 1.1px;
+  align-self: center;
 }
 .add-workout {
   font-size: 2rem;
@@ -312,4 +313,13 @@ header {
 }
 .detail-padding:last-child {
   padding-bottom: 0.4rem;
+}
+.img-logo {
+  width: 6.4rem;
+  height: 6.4rem;
+}
+.company-details {
+  display: flex;
+  align-content: space-between;
+  padding-left: 3.2rem;
 }
