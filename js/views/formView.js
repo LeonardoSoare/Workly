@@ -22,32 +22,33 @@ class FormView extends View {
               ></textarea>
               <div class="set" data-number="${START_ID}">
               <div class="exercise-weight">
+              <label class="label-name" for="weight">Weight:</label>
                 <input
                   name="weight-${START_ID}-${START_ID}"
+                  id="weight"
                   class="weight input-exercise"
                   type="text"
-                  placeholder="Weight"
+                  placeholder="kg"
                   required
                 />
-                <label class="unit">
-                kg
-                </label>
               </div>
               <div class="input-container">
                 <label class="label-name" for="reps">Reps:</label>
-                <input name="reps-${START_ID}-${START_ID}" id="reps" class="reps input-exercise" type="text" required />
+                <input name="reps-${START_ID}-${START_ID}" id="reps" class="reps input-exercise" type="text" required placeholder="Number"/>
               </div>
               <div class="input-container">
                 <label class="label-name" for="rest">Rest:</label>
-                <input name="rest-${START_ID}-${START_ID}" id="rest" class="rest input-exercise" type="text" required />
+                <input name="rest-${START_ID}-${START_ID}" id="rest" class="rest input-exercise" type="text" required placeholder="min sec"/>
               </div>
             </div>
+            <div class="control-sets-btns">
             <div class="img-button-container sets-plus" data-exercise="${START_ID}">
               <img class="img" src="${plus}"  />
             </div>
             <div class="sets-separator-line set-line"></div>
             <div class="img-button-container sets-minus" data-exercise="${START_ID}">
               <img class="img" src="${minus}"  />
+            </div>
             </div>
           </div>
           <div class="separator">
@@ -89,54 +90,51 @@ class FormView extends View {
     this._parentElement.addEventListener("submit", function (e) {
       e.preventDefault();
       const dataArr = [...new FormData(this.querySelector("form"))];
-      console.log(dataArr);
+      // console.log(dataArr);
       handler(dataArr, this.querySelector("form").dataset.edit);
     });
   }
 
   renderSet(id) {
-    console.log(id);
     const setNumber = Array.from(
       this._parentElement.querySelector(`#e${id}`).querySelectorAll(".set")
     ).at(-1).dataset.number;
 
-    console.log("Hello SetNumber", setNumber);
     const markup = `
-    <div class="exercise-separator-line set-line"></div>
+  
   <div class="set" data-number="${+setNumber + 1}" >
+  <div class="exercise-separator-line set-line"></div>
   <div class="exercise-weight">
+    <label class="label-name" for="weight">Weight:</label>
     <input
       name="weight-${id}-${+setNumber + 1}"
+      id="weight"
       class="weight input-exercise"
       type="text"
-      placeholder="Weight"
+      placeholder="kg"
       required
     />
-    <label class="unit">
-    kg
-    </label>
   </div>
   <div class="input-container">
     <label class="label-name" for="reps">Reps:</label>
     <input name="reps-${id}-${
       +setNumber + 1
-    }" id="reps" class="reps input-exercise" type="text" required />
+    }" id="reps" class="reps input-exercise" type="text" required placeholder="Number"/>
   </div>
   <div class="input-container">
     <label class="label-name" for="rest">Rest:</label>
     <input  name="rest-${id}-${
       +setNumber + 1
-    }" id="rest" class="rest input-exercise" type="text" required />
+    }" id="rest" class="rest input-exercise" type="text" required placeholder="Min Sec"/>
   </div>
 </div>
 `;
-    const btnPlus = this._parentElement.querySelector(
-      `[data-exercise="${id}"]`
-    );
+    const btnPlus = this._parentElement
+      .querySelector(`[data-exercise="${id}"]`)
+      .closest(".control-sets-btns");
     btnPlus.insertAdjacentHTML("beforebegin", markup);
   }
   destroySet(id) {
-    console.log(id);
     const selectedExercise = document.getElementById(`e${id}`);
     const lastSet = Array.from(selectedExercise.querySelectorAll(".set")).at(
       -1
@@ -152,7 +150,6 @@ class FormView extends View {
     const lastId = Array.from(this._parentElement.querySelectorAll(".exercise"))
       .at(-1)
       .id.slice(1);
-    console.log(lastId);
     const markup = ` 
     <div class="exercise-separator-line exercise-line"></div>
     <div class="exercise" id="e${+lastId + 1}">
@@ -165,31 +162,33 @@ class FormView extends View {
               required
             ></textarea>
             <div class="set" data-number="${START_ID}">
+              
               <div class="exercise-weight">
+              <label class="label-name" for="weight">Weight:</label>
                 <input
                   name="weight-${+lastId + 1}-${START_ID}"
                   class="weight input-exercise"
                   type="text"
-                  placeholder="Weight"
+                  id="weight"
+                  placeholder="kg"
                   required
                 />
-                <label class="unit">
-                kg
-                </label>
+               
               </div>
               <div class="input-container">
                 <label class="label-name" for="reps">Reps:</label>
                 <input name="reps-${
                   +lastId + 1
-                }-${START_ID}" id="reps" class="reps input-exercise" type="text" required />
+                }-${START_ID}" id="reps" class="reps input-exercise" type="text" required placeholder="number"/>
               </div>
               <div class="input-container">
                 <label class="label-name" for="rest">Rest:</label>
                 <input name="rest-${
                   +lastId + 1
-                }-${START_ID}" id="rest" class="rest input-exercise" type="text" required />
+                }-${START_ID}" id="rest" class="rest input-exercise" type="text" required placeholder="min sec"/>
               </div>
             </div>
+            <div class="control-sets-btns">
             <div class="img-button-container sets-plus" data-exercise="${
               +lastId + 1
             }">
@@ -201,6 +200,7 @@ class FormView extends View {
             }">
               <img class="img" src="${minus}" />
             </div>
+            </div>
           </div>
 
     `;
@@ -209,9 +209,15 @@ class FormView extends View {
       .insertAdjacentHTML("beforebegin", markup);
   }
   destroyExercise() {
+    if (
+      Array.from(this._parentElement.querySelectorAll(".exercise")).length === 1
+    )
+      return;
+
     const lastExercise = Array.from(
       this._parentElement.querySelectorAll(".exercise")
     ).at(-1);
+
     lastExercise.remove();
     const lastExerciseLine = Array.from(
       this._parentElement.querySelectorAll(".exercise-line")

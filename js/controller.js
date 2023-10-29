@@ -1,7 +1,6 @@
 import * as model from "./model.js";
 import { async } from "regenerator-runtime";
 import "core-js/stable";
-import view from "./views/view.js";
 import resultsView from "./views/resultsView.js";
 import workoutView from "./views/workoutView.js";
 import formView from "./views/formView.js";
@@ -45,8 +44,8 @@ const controlDelete = async function () {
   resultsView.render(model.state);
 };
 const controlSets = function (minus = false, plus = false, id) {
-  console.log(minus, plus);
-  console.log(id);
+  // console.log(minus, plus);
+  // console.log(id);
   if (plus) formView.renderSet(id);
   if (minus) formView.destroySet(id);
 };
@@ -54,9 +53,7 @@ const controlExercise = function (minus = false, plus = false, id) {
   if (plus) formView.renderExercise();
   if (minus) formView.destroyExercise();
 };
-const controlTest = function () {
-  console.log("Hello from controller");
-};
+const controlTest = function () {};
 const controlGetFormData = async function (data, edit = false) {
   const postData = model.mapFormDataToWorkoutObject(data);
   let workoutId;
@@ -75,7 +72,7 @@ const controlGetFormData = async function (data, edit = false) {
   window.location.hash = workoutId;
 };
 const controlEditData = function () {
-  console.log(model.state);
+  // console.log(model.state);
   editView.render(model.state);
 };
 

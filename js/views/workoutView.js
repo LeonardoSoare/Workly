@@ -11,7 +11,6 @@ class WorkoutView extends View {
   }
   addHandlerDelete(handler) {
     this._parentElement.addEventListener("click", function (e) {
-      console.log(this._data);
       const delBtn = e.target.closest(".trash-icon");
       if (delBtn) {
         handler();
@@ -28,7 +27,7 @@ class WorkoutView extends View {
   }
 
   _generateMarkup() {
-    console.log(this._data);
+    // console.log(this._data);
     const markup = `
     <div class="exercise-title">${this._data.workout.name}</div>
     <div class="exercise-focus">Focus:${this._data.workout.focus}</div>
@@ -60,7 +59,6 @@ class WorkoutView extends View {
       .join("")}
     </div>
     `;
-    console.log(markup);
 
     return markup;
   }

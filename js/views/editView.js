@@ -35,22 +35,22 @@ class EditView extends View {
               ${exercise.sets
                 .map((set, i) => {
                   const markupSet = `
-               ${
-                 i ? `<div class="exercise-separator-line set-line"></div>` : ""
-               }   
+              
               <div class="set" data-number="${i + 1}">
+              ${
+                i ? `<div class="exercise-separator-line set-line"></div>` : ""
+              }   
               <div class="exercise-weight">
+              <label class="label-name" for="weight">Weight:</label>
               <input 
               name="weight-${index + 1}-${i + 1}"
+              id="weight"
               class="weight input-exercise"
                   type="text"
-                  placeholder="Weight"
+                  placeholder="kg"
                   required
                 value="${set.weight}"
               />
-              <label class="unit">
-              kg
-              </label>
               </div>
               <div class="input-container">
                 <label class="label-name" for="reps">Reps:</label>
@@ -70,16 +70,18 @@ class EditView extends View {
                   return markupSet;
                 })
                 .join("")}
-              <div class="img-button-container sets-plus" data-exercise="${
-                index + 1
-              }">
+        <div class="control-sets-btns">
+          <div class="img-button-container sets-plus" data-exercise="${
+            index + 1
+          }">
           <img class="img" src="${plus}"  />
-        </div>
-        <div class="sets-separator-line set-line"></div>
-        <div class="img-button-container sets-minus" data-exercise="${
-          index + 1
-        }">
-          <img class="img" src="${minus}"  />
+          </div>
+          <div class="sets-separator-line set-line"></div>
+          <div class="img-button-container sets-minus" data-exercise="${
+            index + 1
+          }">
+            <img class="img" src="${minus}"  />
+          </div>
         </div>
         </div>
               `;
@@ -100,7 +102,7 @@ class EditView extends View {
       <button type="submit" href="#" class="submit-button">Submit</button>
     </form>
             `;
-    console.log(markup);
+    // console.log(markup);
     return markup;
   }
 }

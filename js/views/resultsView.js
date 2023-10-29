@@ -11,7 +11,6 @@ class ResultsView extends View {
 
       .map((result) => {
         let image = Math.trunc(Math.random() * 3 + 1);
-        console.log(image);
         if (image === 1) {
           image = image1;
         }

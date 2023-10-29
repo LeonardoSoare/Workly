@@ -10,21 +10,21 @@ export const state = {
 export const loadWorkouts = async function () {
   const data = await AJAX(API_URL);
   state.results = data.data;
-  console.log("Here is the state in the load Workouts", state);
+  // console.log("Here is the state in the load Workouts", state);
 };
 
 export const loadWorkout = async function (id) {
   if (!id) return;
   const data = await AJAX(API_URL, id);
-  console.log(data);
+  // console.log(data);
   state.workout = data.data;
-  console.log(state.workout);
+  // console.log(state.workout);
 };
 
 export const deleteWorkout = async function (id) {
   if (!id) return;
   const data = await DEL_AJAX(API_URL, id);
-  console.log(data);
+  // console.log(data);
 };
 // Remember to put data aysnc
 // export const postData = function () {
@@ -45,7 +45,6 @@ export const deleteWorkout = async function (id) {
 // };
 export const mapFormDataToWorkoutObject = (formData) => {
   const data = Object.fromEntries(formData);
-  console.log(data);
 
   const workoutObj = {
     name: data["workout-name"],
@@ -55,14 +54,12 @@ export const mapFormDataToWorkoutObject = (formData) => {
 
   let index = 0;
   while (data[`exercise-${index + 1}`]) {
-    console.log(`Found exercise ${index + 1}`);
     workoutObj.exercises[index] = {
       name: data[`exercise-${index + 1}`],
       sets: [],
     };
     let setIndex = 0;
     while (data[`weight-${index + 1}-${setIndex + 1}`]) {
-      console.log(`Found set ${index + 1}-${setIndex + 1}`);
       const rest = data[`rest-${index + 1}-${setIndex + 1}`].split(" ");
       workoutObj.exercises.at(index).sets[setIndex] = {
         weight: data[`weight-${index + 1}-${setIndex + 1}`],
@@ -74,12 +71,11 @@ export const mapFormDataToWorkoutObject = (formData) => {
     }
     index++;
   }
-  console.log(workoutObj);
   return workoutObj;
 };
 
 export const postWorkout = async function (data, id = "") {
   const response = await POST_PUT_AJAX(API_URL, data, id);
-  console.log(response);
+  // console.log(response);
   return response.data.id;
 };
